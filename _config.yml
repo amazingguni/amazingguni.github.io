@@ -7,9 +7,12 @@ url:
 
 # Jekyll configuration
 
-permalink:   /:categories/:title/
-markdown:    kramdown
-highlighter: rouge
+permalink:   pretty
+markdown:    redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data", "tables"]
+
+highlighter: pygments
 sass:
   sass_dir: _sass
   style: compressed

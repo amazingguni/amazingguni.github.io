@@ -13,7 +13,7 @@ comments: true
 ### Django란 무엇인가?
 테스트 환경에 대해 이야기하기에 앞서 *Django*가 무엇인지 간단하게 짚고 넘어가보자.  
 *Django*는 *Python*으로 만들어진 *Web Application Framework* 이고 [오픈소스](https://github.com/django/django)로 공개되어 있고 **공짜로 이용 가능**하다. 
-또한, 웹 개발자들이 아이디어를 구상하고 구현하기까지 고려해야할 여러가지 것들을 대신 해주어 개발 속도가 **놀라울 정도로 빨라진다**<del>고 한다</del>.  
+또한, 웹 개발자들이 아이디어를 구상하고 구현하기까지 고려해야할 여러가지 것들을 대신 해주어 개발 속도가 **놀라울 정도로 빨라진다**~~고 한다~~.  
 
 ### Django 설치
 `Python 3`를 사용할 예정이기 때문에 아래 명령어로 설치한다.
@@ -60,7 +60,7 @@ pomodoro_web/
   - 또한 해당 디렉토리는 *Python package name*으로 사용되어 *Django Project*내에서 import할 수 있다.(e.g., `import pomodoro_web.urls`)  
 - `pomodoro_web/settings.py`는 *Django project*의 [다양한 설정](https://docs.djangoproject.com/en/1.9/topics/settings/)들을 저장한다.  
 - `pomodoro_web/urls.py`는 *Django project*의 URL 정의를 저장한다.  
-- <del>`pomodoro_web/wsgi.py`는 아직 잘 모르겠다.(TODO)</del>  
+- ~~`pomodoro_web/wsgi.py`는 아직 잘 모르겠다.(TODO)~~  
 
 <br>
 위에서 설명한 `manage.py`를 이용해서 server를 가동하면 당신의 첫번째 *DJango Project*가 실행된다.
