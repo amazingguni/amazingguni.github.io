@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 프로젝트 테스트 환경 구축 1 - 첫 Django Project
+title: Django 프로젝트 테스트 환경 구축 2 - unittest란?
 excerpt: "Django"
 tags: [python, django, test]
 comments: true
@@ -10,92 +10,62 @@ comments: true
 해당 블로그 및 예제는 `Ubuntu 15.10`에서 작성되었다.  
 
 
-### Django란 무엇인가?
-테스트 환경에 대해 이야기하기에 앞서 *Django*가 무엇인지 간단하게 짚고 넘어가보자.  
-*Django*는 *Python*으로 만들어진 *Web Application Framework* 이고 [오픈소스](https://github.com/django/django)로 공개되어 있고 **공짜로 이용 가능**하다. 
-또한, 웹 개발자들이 아이디어를 구상하고 구현하기까지 고려해야할 여러가지 것들을 대신 해주어 개발 속도가 **놀라울 정도로 빨라진다**~~고 한다~~.  
+### unittest란?
+`unittest` 모듈은 JUnit과 동일한 기능을 제공하는 Python 모듈이다.(PyUnit이라고도 불린다)  
+python 2나 3을 사용하지 않는다면 대부분 기본적으로 설치되어 있어 import만으로 사용이 가능하다.
 
-### Django 설치
-`Python 3`를 사용할 예정이기 때문에 아래 명령어로 설치한다.
-{% highlight sh %}
-sudo apt-get install python3
+### Sample Code
+{% highlight py %}
+from selenium import webdriver
+import unittest
+
+class CommonTest(unittest.TestCase):
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.browser.implicitly_wait(3)
+
+    def tearDown(self):
+        self.browser.quit()
+
+    def test_site_title(self):
+        self.browser.get('http://localhost:8000')
+        self.assertIn('Pomodoro web', self.browser.title)
+
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')
 {% endhighlight %}
 
-python3 package 설치를 위해 `pip3`를 설치한다.  
+1. `unittest.TestCase`를 상속한 클래스 형태의 테스트를 만든다.
+2. `setUp()`: 테스트 코드 실행 전에 실행할 설정 작업들을 모아둔 함수이다.(precondition을 설정해야 할 경우)
+ * 위에서는 browser engine을 설정하였다
+ * `implicitly_wait()`는 3초간 대기한 이후에 진행되도록 sleep을 하는 코드이다.
+3. `tearDown()`: 테스트 코드를 실행한 이후에 마무리를 하는 코드를 입력한다.
+ * `test code`나 `setup` 함수에서 에러가 발생한다고 하더라도 무조건 실행되는 코드이다.(try-catch-finally의 finally같은 느낌?)
+ * 해당 코드에서는 browser를 종료하는 코드가 들어갔다.
+4. test함수는 항상 `test`를 앞에 붙여주어야 한다.
+ * 이 규칙만 따른다는 class 내에 테스트 함수를 여러개 만들 수 있다.
+5. self.assertIn(a, b): a가 b에 있는지 확인한다.
+ * 위의 예제에서는 a와 b가 string 이기 때문에 해당 문자열이 포함되었는지 확인한다.
 
-- Python3 package를 설치하기 위한 툴
+> 자세한 assert문의 종류에 대해서는 [unittest 공식 문서](https://docs.python.org/3/library/unittest.html)를 참고 바란다.  
+`assertEqual`, `assertTrue`, `assertFalse` 등은 자주 씌이는 assert문이다.
 
-{% highlight sh %}
-sudo apt-get install python3-pip
+위 코드를 실행한 결과는 아래와 같다.
+{% highlight py %}
+F
+======================================================================
+FAIL: test_site_title (__main__.CommonTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "functional_tests.py", line 13, in test_site_title
+    self.assertIn('Pomodoro web', self.browser.title)
+AssertionError: 'Pomodoro web' not found in 'Welcome to Django'
+
+----------------------------------------------------------------------
+Ran 1 test in 3.390s
+
+FAILED (failures=1)
 {% endhighlight %}
 
-`Django`를 설치한다.
-{% highlight sh %}
-sudo pip3 install django
-{% endhighlight %}
-
-### Django 프로젝트 생성
-`pomodoro_web`이라는 이름으로 프로젝트를 생성한다.
-   
-- 추후 해당 내용으로 블로그를 이어 나갈 예정이다.
-{% highlight sh %}
-django-admin startproject pomodoro_web
-{% endhighlight %}
-
-위 명령어를 실행하고 나면 아래와 같이 프로젝트가 생성된다.
-{% highlight sh %}
-pomodoro_web/
-├── manage.py
-└── pomodoro_web
-    ├── __init__.py
-    ├── settings.py
-    ├── urls.py
-    └── wsgi.py
-{% endhighlight %}
-
-- `manage.py`는 *Django project*로 다양한 작업들을 할 수 있도록 도와주는 Utility이다.  
-  - 자세한 옵션에 대해서는 Django 공식 홈페이지의 [django-admin and manage.py](https://docs.djangoproject.com/en/1.9/ref/django-admin/)를 참고바란다.  
-- `pomodoro_web`  
-  - 프로젝트 이름과 동일한 Directory가 생성되는 것을 볼 수 있는데 사이트 전체에 Global하게 적용되는 설정들을 저장하는 곳이라고 보면 된다.  
-  - 또한 해당 디렉토리는 *Python package name*으로 사용되어 *Django Project*내에서 import할 수 있다.(e.g., `import pomodoro_web.urls`)  
-- `pomodoro_web/settings.py`는 *Django project*의 [다양한 설정](https://docs.djangoproject.com/en/1.9/topics/settings/)들을 저장한다.  
-- `pomodoro_web/urls.py`는 *Django project*의 URL 정의를 저장한다.  
-- ~~`pomodoro_web/wsgi.py`는 아직 잘 모르겠다.(TODO)~~  
-
-<br>
-위에서 설명한 `manage.py`를 이용해서 server를 가동하면 당신의 첫번째 *DJango Project*가 실행된다.
-{% highlight sh %}
-python3 manage.py runserver
-
-March 06, 2016 - 09:08:29
-Django version 1.9.2, using settings 'pomodoro_web.settings'
-Starting development server at http://127.0.0.1:8000/
-Quit the server with CONTROL-C.
-{% endhighlight %}
-> Port를 변경하고자 할 경우에는 아래와 같이 parameter로 추가하여 호출하면 된다.
-`python3 manage.py runserver 8081`
-
-비록 내용은 없지만 `http://localhost:8000/`에 접속하면 *Django Default 접속 화면*을 볼 수 있다.
-
-### Django 어플리케이션
-*Django*는 웹 서비스를 `app`의 형태로 구조화할 수 있다.  
-`app`을 생성할 때는 아래 명령어를 사용한다.  
-
-- 해당 블로그에서는 task들을 보여주는 app을 만들 예정이기 때문에 *tasks*로 명명했다.
-{% highlight sh %}
-python3 manage.py startapp tasks
-{% endhighlight %}
-
-프로젝트 내에 아래와 같은 `tasks` 디렉토리가 생성된 것을 확인할 수 있다.
-{% highlight sh %}
-tasks
-├── admin.py
-├── apps.py
-├── __init__.py
-├── migrations
-│   └── __init__.py
-├── models.py
-├── tests.py
-└── views.py
-{% endhighlight %}
+웹 페이지의 이름을 정하지 않았기 때문에 당연히 실패로 끝난다.
 
