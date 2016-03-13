@@ -64,9 +64,7 @@ print(a+b)
 > subl
 {% endhighlight %}
 
-`SublimeREPL: Python - Run current file`이 virtualenv의 python 환경을 따르는 것을 확인 할 수 있다.
-
-- python version, library(selenium)..
+`SublimeREPL: Python - Run current file`이 virtualenv의 python 환경을 따르는 것을 확인 할 수 있다.  
 ![run-current-file]({{site.url}}/assets/images/post/python/2016-03-12/REPL_run_current_file.png)
 
 
