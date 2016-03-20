@@ -114,3 +114,8 @@ python manage.py migrate
 
 > 중간중간, `foreign key`라든지, `1대다 관계 매핑`이라든지 하는 부분에 대해서는 필요할 때 해당 포스트를 수정하거나 새로운 포스트를 작성할 예정이다.~~실은 지금 전혀 모르고 있기도 해서..~~
 
+
+-----
+####reference
+[Models | Django documentation | Django](https://docs.djangoproject.com/en/1.9/topics/db/models/)  
+[Django 모델 | Django Girls Tutorial](http://tutorial.djangogirls.org/ko/django_models/index.html)
