@@ -15,7 +15,7 @@ comments: true
 python 2나 3을 사용하지 않는다면 대부분 기본적으로 설치되어 있어 import만으로 사용이 가능하다.
 
 ### Sample Code
-{% highlight py %}
+``` python
 from selenium import webdriver
 import unittest
 
@@ -33,7 +33,7 @@ class CommonTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
-{% endhighlight %}
+```
 
 1. `unittest.TestCase`를 상속한 클래스 형태의 테스트를 만든다.
 2. `setUp()`: 테스트 코드 실행 전에 실행할 설정 작업들을 모아둔 함수이다.(precondition을 설정해야 할 경우)
@@ -51,7 +51,8 @@ if __name__ == '__main__':
 `assertEqual`, `assertTrue`, `assertFalse` 등은 자주 씌이는 assert문이다.
 
 위 코드를 실행한 결과는 아래와 같다.
-{% highlight py %}
+
+``` python
 F
 ======================================================================
 FAIL: test_site_title (__main__.CommonTest)
@@ -65,7 +66,7 @@ AssertionError: 'Pomodoro web' not found in 'Welcome to Django'
 Ran 1 test in 3.390s
 
 FAILED (failures=1)
-{% endhighlight %}
+```
 
 웹 페이지의 이름을 정하지 않았기 때문에 당연히 실패로 끝난다.  
 이렇게 `의도적으로 실패하는 코드`를 작성함으로써 TDD는 시작된다.
