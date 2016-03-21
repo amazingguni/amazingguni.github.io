@@ -108,7 +108,7 @@ Destroying test database for alias 'default'...
 그래서, `models.py`에 지정된 database를 생성하는 명령어를 아래와 같이 입력해주어야 정상적으로 database 생성이 완료된다.
 
 ``` sh
-python manage.py makemigration
+python manage.py makemigration tasks
 python manage.py migrate
 ```
 
