@@ -11,9 +11,13 @@ comments: true
 
 ###Model?
 `Model`은 간단히 말해 data이다.  
-이 data는 *To do list*의 하나의 item일 수도 있고, 혹은 게시판의 한개의 글일 수도 있다.  
+2가지 개념으로 나누어 볼 수 있는데:
+
+1. Class 자체는 table을 나타낸다고 할 수 있다. 할일을 담아주는 `Task` table일 수도 있고 게시판 데이터를 담고 있는 table일 수도 있다.  
+django에서는 `Model`을 상속받은 이 class를 통해서 데이터 list를 가져 올 수 있다.(물론 추가/수정/삭제 도 가능하다)
+2. `Model`을 상속받은 class의 instance는 *To do list*의 하나의 item일 수도 있고, 혹은 게시판의 한개의 글일 수도 있다.  
 즉 database table에서의 한개의 row를 나타낸다고 보는 것이 지금으로써는 맞는 말인 것 같다.
-> instance로 생성되는 녀석에 대해서는 그런거 같은데 class 자체는 다른 의미로 쓰이는 것으로 보인다.
+
 
 ###Tutorial
 해당 블로그에서 만들고자 하는 web site는 일종의 `To-do-list`이기 때문에 그에 맞는 `Model`을 생성하는 예제를 통해 어떤 개념인지 가볍게 알아보도록 하자.  
@@ -104,6 +108,7 @@ Destroying test database for alias 'default'...
 그래서, `models.py`에 지정된 database를 생성하는 명령어를 아래와 같이 입력해주어야 정상적으로 database 생성이 완료된다.
 
 ``` sh
+python manage.py makemigration
 python manage.py migrate
 ```
 
