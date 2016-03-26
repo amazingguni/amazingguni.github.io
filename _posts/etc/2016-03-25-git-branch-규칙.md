@@ -52,34 +52,47 @@ Git의 가장 큰 장점인 branch라는 개념을 효율적으로 쓰는 방법
 > 특정 기능을 베포하고자 할 때 뿐만 아니라, 주기적인 릴리즈(에자일에서 말하는) 시에도 `release` branch를 만들기도 한다.
 
 `release` branch의 주기는 아래와 같다:
+
 1. `develop` branch로부터 `release` branch 생성  
+
     ``` sh
     $ git checkout -b release-2.1 develop
     ```
+
 2. 코드 내의 버전 정보와 같은 메타 데이터를 알맞게 수정한다.
-   ``` sh
+
+    ``` sh
     # 버전을 바꾸는 script 실행 혹은 행위
     $ ./change-version.sh -v 2.1
     ```
+
 3. release를 위한 검증을 진행한다.
 4. 해당 release 버전 검증 중에 발견되는 버그는 우선 `release` branch에서 수정한다.
 5. `3 ~ 4`를 반복한다.
 6. release될 준비가 되었다고 판단되면 베포한다.
 7. `release` branch를 `master` branch로 merge한다.
+
     ``` sh
     $ git checkout master
     $ git merge --no-ff release-2.1
     ```
+
 8. 버전정보를 포함한 `TAG`를 작성한다.
+
     ``` sh
     $ git tag -a 2.1
     ```
+
 9. `develop` branch에도 `release` branch의 수정사항을 merge한다.
+
     ``` sh
     $ git checkout develop
     $ git merge --no-ff release-2.1
     # conflict가 난다면 적절하게 수정...
+    ```
+
 10. `release` branch를 삭제한다.
+
     ``` sh
     $ git branch -d release-2.1
     ```
