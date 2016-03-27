@@ -205,7 +205,6 @@ h1 /* .post-title */ {
     }
 
     h3 {
-		font-style: italic;
         font-size: 26px; 
 
         @include media-query($on-laptop) {
