@@ -21,12 +21,22 @@ Git의 가장 큰 장점인 branch라는 개념을 효율적으로 쓰는 방법
 현업이나 개인 펫 프로젝트에서 사용해가며 보완, 응용하여 나에게 맞는 스타일을 찾아가고자 한다.
 
 ---
+## Overview
+
+아래서 설명할 branch에 대한 전체 구조는 아래와 같다.
+
+> 출처 : [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
+
+![git-branching-model]({{site.url}}/images/post/etc/git-branching-model.png)
+
 ## 주요 Branch
 
 주요 브랜치 두 개는 항상 유지한다.
 
 * master
 * develop
+
+![main-branches]({{site.url}}/images/post/etc/main-branches.png)
 
 기본적으로 `master`는 곧 베포할 코드를 보관하며 매일 빌드하는 개발중인 코드를 `develop`에 보관한다. `develop` branch에 보관하는 코드가 안정되고 release를 할 준비가 완료되면 `master`로 merge하고 `TAG`를 단다. `master`에 `develop` branch를 merge할 때는 항상 새로운 버전이 release 되는 것을 의미한다고 봐도 좋다.
 
@@ -134,6 +144,8 @@ Git의 가장 큰 장점인 branch라는 개념을 효율적으로 쓰는 방법
 ### hotfix
 
 베포 이후에 버그가 나오지 않는다면 참 좋겠지만, minor하건 critical하건 버그는 언제나 등장하기 마련이다. `hotfix` branch는 그런한 버그를 수정하기 위한 목적으로 만들어진다. hotfix 이후에는 새로운 베포 바이너리를 말아야(?)하기 때문에 `hotfix` branch도 버전 정보를 포함한다.
+
+![hotfix-branches]({{site.url}}/images/post/etc/hotfix-branches.png)
 
 > 별도로 branch를 개설함으로써 한 개발자가 `hotfix` branch에서 버그를 수정하는 동안 다른 개발자들은 `develop` branch에서 개발을 계속 진행할 수 있다.
 
