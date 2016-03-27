@@ -25,7 +25,9 @@ body {
 }
 
 
-
+hr {
+    margin: 3em 0;
+}
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
@@ -142,6 +144,7 @@ code {
     border-radius: 4px;
     padding: 1px 5px;
     margin: 4px;
+    border: 0;
 }
 
 pre {

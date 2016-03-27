@@ -33,11 +33,11 @@ print(a+b)
 1. `ctrl+shift+p`로 `command palette`를 연다. 
 2. `Package Control - Install Package`를 입력하고 `Enter`
 3. `SublimeREPL`을 입력하고 `Enter`를 눌러 설치한다.  
-![SublimeREPL 설치]({{site.url}}/assets/images/post/python/2016-03-12/install-repl.png)
+![SublimeREPL 설치]({{site.url}}/images/post/python/install-repl.png)
 4. 설치 완료
 5. `sublime text` 재실행(안해도 될지도..)
 6. `ctrl+shift+p`로 `command palette`를 열고 SublimeREPL: Python - run current file을 통해 빌드 및 실행을 하면 아래와 같이 사용자 입력이 가능하다.  
-![SublimeREPL 실행]({{site.url}}/assets/images/post/python/2016-03-12/sublimeREPL-run.png)
+![SublimeREPL 실행]({{site.url}}/images/post/python/sublimeREPL-run.png)
 
 ### virtualenv - new
 
@@ -49,7 +49,7 @@ print(a+b)
 1. `Package Control - Install Package` 로 들어간 이후 `virtualenv` 설치
 2. `ctrl+shift+p` 에서 `virtualenv-new` 실행
 3. 이름을 입력하고 `vitautlenv` 생성  
-![virtualenv-new]({{site.url}}/assets/images/post/python/2016-03-12/virtualenv-new.png)
+![virtualenv-new]({{site.url}}/images/post/python/virtualenv-new.png)
 4. 팝업이 뜨면 사용할 Python version 선택
 5. 새로운 virtualenv 생성 완료
 
@@ -65,7 +65,7 @@ print(a+b)
 {% endhighlight %}
 
 `SublimeREPL: Python - Run current file`이 virtualenv의 python 환경을 따르는 것을 확인 할 수 있다.  
-![run-current-file]({{site.url}}/assets/images/post/python/2016-03-12/REPL_run_current_file.png)
+![run-current-file]({{site.url}}/images/post/python/REPL_run_current_file.png)
 
 
 
