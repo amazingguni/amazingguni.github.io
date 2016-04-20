@@ -2,7 +2,7 @@
 title: Gunilog
 email: amazingguni@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-    흔한 개발자의 자질구래한 개발 관련 블로그입니다. 
+    나, 그리고 내가 하는 개발에 대한 로그 
 baseurl: "" # the subpath of your site, e.g. /blog/
 #url: "http://amazingguni.github.io/" # the base hostname & protocol for your site
 twitter_username: # none

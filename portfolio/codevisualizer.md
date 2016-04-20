@@ -1,12 +1,12 @@
 ---
 layout: page
 title: CodeVisualizer
-permalink: /note/item-1/
+permalink: /portfolio/codevisualizer/
 ---
 
 2012년 7월즈음 진행한 `Code visualizer` 프로젝트에 대한 log이다.
 
-[http://dev.naver.com/projects/codevisualizer](http://dev.naver.com/projects/codevisualizer
+[http://dev.naver.com/projects/codevisualizer](http://dev.naver.com/projects/codevisualizer)
 
 ### 프로젝트를 시작한 이유
 
