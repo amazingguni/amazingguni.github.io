@@ -206,7 +206,7 @@ h1 /* .post-title */ {
 
     h3 {
         font-size: 26px; 
-
+        border-bottom: 1px solid gray;
         @include media-query($on-laptop) {
             font-size: 22px; 
         }
