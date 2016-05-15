@@ -12,7 +12,15 @@ disqus-shortname: amazingguni
 permalink:   pretty
 markdown:    redcarpet
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data", "tables"]
+  extensions: 
+    - no_intra_emphasis
+    - fenced_code_blocks
+    - autolink
+    - strikethrough
+    - superscript
+    #- with_toc_data
+    - tables
+    - hard_wrap
 
 highlighter: pygments
 
