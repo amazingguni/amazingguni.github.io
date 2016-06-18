@@ -286,6 +286,11 @@ Apache와 Nginx 모두 서버 상태 페이지를 제공합니다. 그를 통해
 * idel상태의 프로세스는 얼마나 되는지
 * 바쁜 프로세스는 무었을 하고 있는지
 
+Ubuntu 서버 Apache의 경우에는 *a2enmod status* 를 통해 서버 상태 페이지를 활성화합니다.
+
+서버가 www.example.net에 위치한다고 가정했을 때 http://www.example.net/server-status 로 접근이 가능합니다.
+ 
+
 ### 일반적인 웹 서버 문제 해결하기
 
 #### 설정 문제
