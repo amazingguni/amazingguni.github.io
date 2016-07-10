@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Http & Network Basic 4장 - 누가 액세스하고 있는지를 확인하는 인증
+title: Http & Network Basic 8장 - 누가 액세스하고 있는지를 확인하는 인증
 excerpt: "Http"
 tags: [http, 그림으로 배우는 Http & Network Basic, 액세스, 인증, SSL]
 comments: true
