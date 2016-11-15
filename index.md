@@ -17,4 +17,4 @@ layout: default
 * EclipeRCP(1년): 회사
 * web(html, js)(3개월): 개인프로젝트(대학생)
 * Window Phone Application(1개월): 학교 과제
-
+* XP practice 전파
